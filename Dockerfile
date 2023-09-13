@@ -8,8 +8,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM nginx:stable-alpine
-EXPOSE 80
-RUN rm -rf /usr/share/nginx/html/*
+FROM nginxinc/nginx-unprivileged:stable-alpine3.18-perl
+EXPOSE 8080
 COPY --from=builder --chown=nginx:nginx /app/dist /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
