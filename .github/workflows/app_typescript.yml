@@ -29,6 +29,12 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Lint Code
+        run: pre-commit run --all-files
+
+      - name: Run Tests
+        run: npm run test
+
       - name: Build Project
         run: npm run build
 
@@ -47,6 +53,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and Push Docker Image
-        run: docker build -t nikolina2k/cat-pics .
+        run: |
+          docker build -t nikolina2k/cat-pics .
           docker tag nikolina2k/cat-pics:latest nikolina2k/cat-pics:latest
           docker push nikolina2k/cat-pics:latest
