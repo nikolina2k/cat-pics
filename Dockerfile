@@ -6,6 +6,8 @@ RUN chown -R appuser:appgroup .
 USER appuser
 RUN npm install
 COPY . .
+RUN mkdir -p dist/assets
+RUN chown -R appuser:appgroup dist
 RUN npm run build
 
 FROM nginxinc/nginx-unprivileged:stable-alpine3.18-perl
