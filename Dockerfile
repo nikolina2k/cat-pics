@@ -2,13 +2,13 @@ FROM node:lts-alpine as builder
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN chown -R appuser:appgroup .
-USER appuser
 RUN npm install
 COPY . .
-RUN mkdir -p dist/assets
-RUN chown -R appuser:appgroup dist
+RUN chown -R appuser:appgroup /app
+USER appuser
+RUN mkdir -p /app/dist/assets
 RUN npm run build
+
 
 FROM nginxinc/nginx-unprivileged:stable-alpine3.18-perl
 EXPOSE 8080
