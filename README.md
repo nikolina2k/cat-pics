@@ -1,3 +1,5 @@
+![workflow](https://github.com/nikolina2k/cat-pics/actions/workflows/app_typescript.yml/badge.svg)
+
 # A web app that shows you cat pictures
 
 ## Framework and overview
@@ -52,3 +54,22 @@ The application will be accessible at http://localhost:3001 in your web browser.
 
 To run the unit tests, follow these steps:
 
+1. Install dependencies:
+
+   ```
+   npm install
+   ```
+
+2. Run the unit tests using the following command:
+
+   ```
+   npm run test
+   ```
+
+## CI
+
+The following secrets need to be specified in order to run the pipeline:
+
+- **DOCKER_PASSWORD** - DockerHub password (or token).
+- **DOCKER_USERNAME** - DockerHub username.
+- **SNYK_TOKEN** - Snyk token.
