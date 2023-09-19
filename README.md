@@ -47,3 +47,8 @@ This application can be easily containerized using Docker. Below are instruction
    ```
 
 The application will be accessible at http://localhost:3001 in your web browser.
+
+## Unit Tests
+
+To run the unit tests, follow these steps:
+
