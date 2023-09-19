@@ -1,9 +1,6 @@
 name: cat-pics
 
-on:
-  push:
-    paths:
-      - '.github/workflows/app_typescript.yml'
+on: push
 
 jobs:
   build:
